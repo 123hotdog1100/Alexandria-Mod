@@ -11,8 +11,8 @@ thessaloniki = {
 	cost_gold = 1500
 	
 	max_garrison = 1000
-	is_enabled ={
-		always = yes
+	is_enabled = {
+		county.empire.holder = county.holder
 	}
 	county_modifier = {
 		development_growth = 0.3
@@ -46,23 +46,25 @@ carthage = {
 	can_construct_potential = {
 		building_requirement_tribal = no
 	}
+	is_enabled = {
+		county.empire.holder = county.holder
+	}
 	
 	cost_gold = 1500
 	
 	county_modifier = {
-		development_growth = 10
+		development_growth = 0.3
 		development_growth_factor = 0.8
-		monthly_income = 10
 	}
 	province_modifier = {
 		fort_level = 3
-		garrison_size = 0.5
+		garrison_size = 0.25
 	}
 	character_modifier = {
 		domain_tax_mult = 0.1
 		stewardship = 2
 		monthly_dynasty_prestige_mult = 0.05
-		stewardship_per_prestige_level =5
+		stewardship_per_prestige_level =2
 		monthly_piety_from_buildings_mult = 0.01
 		monthly_income = 5
 	}
@@ -71,9 +73,9 @@ carthage = {
 		culture_likely_to_fortify_modifier = yes
 	}
 	
-	type = special
+	type = duchy_capital
 }
-
+}
 gaul = {
 	construction_time = 730
 
@@ -87,7 +89,9 @@ gaul = {
 	cost_gold = 1500
 	
 	max_garrison = 1000
-	
+	is_enabled = {
+		county.empire.holder = county.holder
+	}
 	county_modifier = {
 		development_growth = 0.2
 		development_growth_factor = 0.1
@@ -96,7 +100,11 @@ gaul = {
 	province_modifier = {
 		fort_level = 3
 		garrison_size = 0.5
-		levy_size = 1000
+		levy_size = 0.5
+	}
+	character_modifier = {
+		can_raid = yes
+		monthly_income = 1 
 	}
 	
 	ai_value = {

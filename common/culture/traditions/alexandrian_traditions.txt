@@ -1,0 +1,26 @@
+Gaulic_tradition = {
+	category = warfare
+	parameters = {
+		can_raid = yes
+	}
+
+	character_modifier = {
+		martial = 1
+	}
+
+	county_modifier = {
+		levy_size = 100
+	}
+	is_shown = {
+		always = yes
+	}
+	province_modifier = {
+		monthly_income = poor_building_tax_tier_4
+	}
+
+	doctrine_character_modifier = {
+		doctrine = doctrine_pluralism_righteous
+		same_faith_opinion = 5
+		tyranny_gain_mult = -0.25
+	}
+}
