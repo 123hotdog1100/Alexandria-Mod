@@ -24,22 +24,25 @@ alexandria_major_decision = {
 	}
 
 	is_valid = {
-		#has_title = title:e_byzantium
-		#prestige_level >= 4
-		#completely_controls = title:k_thessalonika
-		#completely_controls = title:k_hellas
-		#completely_controls = title:k_nikaea
-		#completely_controls = title:k_pontus
-		#completely_controls = title:k_anatolia
-		#completely_controls = title:k_epirus
-		#completely_controls = title:k_armenia
-		#completely_controls = title:k_jazira
-		#completely_controls = title:k_syria
-		#completely_controls = title:k_jerusalem
-		#completely_controls = title:k_egypt
-		#completely_controls = title:k_persia
-		#completely_controls = title:k_makran
-		#completely_controls = title:k_khorasan
+		OR = {
+			has_title = title:e_byzantium
+			has_title = title:e_persia
+		}
+		prestige_level >= 4
+		completely_controls = title:k_thessalonika
+		completely_controls = title:k_hellas
+		completely_controls = title:k_nikaea
+		completely_controls = title:k_pontus
+		completely_controls = title:k_anatolia
+		completely_controls = title:k_epirus
+		completely_controls = title:k_armenia
+		completely_controls = title:k_jazira
+		completely_controls = title:k_syria
+		completely_controls = title:k_jerusalem
+		completely_controls = title:k_egypt
+		completely_controls = title:k_persia
+		completely_controls = title:k_makran
+		completely_controls = title:k_khorasan
 	}
 
 	cost = {
