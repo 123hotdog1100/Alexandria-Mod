@@ -130,7 +130,7 @@ alexandria_major_decision = {
 						change = scope:change
 					}
 					change_development_level = 20
-					#title_province = { add_building_slot = 3 }
+					title_province = { add_building_slot = 3 }
 					title_province = { add_special_building =  thessaloniki}
 				}
 				resolve_title_and_vassal_change = scope:change
@@ -179,12 +179,12 @@ carthage_major_decision = {
 
 	is_shown = {
 		is_ruler = yes
-		NOT = {  #Can only do it once.
-		is_target_in_global_variable_list = {
-			name = unavailable_unique_decisions
-			target = flag:flag_restored_carthage_empire
-			}
-		}
+		#NOT = {  #Can only do it once.
+		#is_target_in_global_variable_list = {
+		#	name = unavailable_unique_decisions
+		#	target = flag:flag_restored_carthage_empire
+		#	}
+		#}
 		OR = {
 			culture = culture:roman
 			culture = culture:italian
@@ -194,13 +194,13 @@ carthage_major_decision = {
 	}
 
 	is_valid = {
-		has_title = title:k_africa
-		prestige_level >= 4
-		completely_controls = title:k_africa
-		completely_controls = title:k_sardinia
-		completely_controls = title:d_cyrenaica
-		completely_controls = title:d_sicily
-		completely_controls = title:k_valencia
+		#has_title = title:k_africa
+		#prestige_level >= 4
+		#completely_controls = title:k_africa
+		#completely_controls = title:k_sardinia
+		#completely_controls = title:d_cyrenaica
+		#completely_controls = title:d_sicily
+		#completely_controls = title:k_valencia
 		
 	}
 
@@ -315,12 +315,14 @@ carthage_major_decision = {
 						change_development_level = 20
 						title_province = { add_building_slot = 2 }
 						set_title_name = Carthage
+						title_province = { add_special_building =  carthage}
 					}
 					resolve_title_and_vassal_change = scope:change
 				}
 				title:b_tunis = {
 					set_title_name = Carthage
 				}
+				
 			}
 			root = { set_realm_capital = title:c_tunis }
 		}
@@ -496,6 +498,8 @@ gaul_major_decision = {
 						}
 						change_development_level = 20
 						title_province = { add_building_slot = 2 }
+						title_province = { add_special_building_slot = 1}
+						title_province = { add_special_building =  gaul}
 					}
 					resolve_title_and_vassal_change = scope:change
 				}

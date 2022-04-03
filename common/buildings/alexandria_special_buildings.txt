@@ -10,22 +10,27 @@ thessaloniki = {
 	
 	cost_gold = 1500
 	
-	max_garrison = 500
-	
-	duchy_capital_county_modifier = {
-		levy_size = 0.15
-		tax_mult = 0.15
+	max_garrison = 1000
+	is_enabled ={
+		always = yes
 	}
 	county_modifier = {
-		development_growth = 0.2
+		development_growth = 0.3
 		development_growth_factor = 0.1
 		hostile_raid_time = 0.5
 	}
 	province_modifier = {
 		fort_level = 3
-		garrison_size = 0.5
+		garrison_size = 0.75
+		tax_mult = 0.25
 	}
-	
+
+	character_modifier = {
+		martial = 1
+		monthly_dynasty_prestige_mult = 0.05
+		prowess_per_prestige_level =5
+		monthly_prestige_gain_per_knight_mult = 0.01
+	}
 	ai_value = {
 		base = 100
 		culture_likely_to_fortify_modifier = yes
@@ -37,31 +42,30 @@ thessaloniki = {
 carthage = {
 	construction_time = 730
 
-	type_icon = "icon_structure_aurelian_walls.dds"
-	
+	type_icon = "icon_building_tradeport.dds"
 	can_construct_potential = {
-		barony = title:b_tunis
 		building_requirement_tribal = no
 	}
 	
 	cost_gold = 1500
 	
-	max_garrison = 500
-	
-	duchy_capital_county_modifier = {
-		levy_size = 0.15
-		tax_mult = 0.15
-	}
 	county_modifier = {
-		development_growth = 0.2
-		development_growth_factor = 0.1
-		hostile_raid_time = 0.5
+		development_growth = 10
+		development_growth_factor = 0.8
+		monthly_income = 10
 	}
 	province_modifier = {
 		fort_level = 3
 		garrison_size = 0.5
 	}
-	
+	character_modifier = {
+		domain_tax_mult = 0.1
+		stewardship = 2
+		monthly_dynasty_prestige_mult = 0.05
+		stewardship_per_prestige_level =5
+		monthly_piety_from_buildings_mult = 0.01
+		monthly_income = 5
+	}
 	ai_value = {
 		base = 100
 		culture_likely_to_fortify_modifier = yes
@@ -69,6 +73,7 @@ carthage = {
 	
 	type = special
 }
+
 gaul = {
 	construction_time = 730
 
@@ -81,12 +86,8 @@ gaul = {
 	
 	cost_gold = 1500
 	
-	max_garrison = 500
+	max_garrison = 1000
 	
-	duchy_capital_county_modifier = {
-		levy_size = 0.15
-		tax_mult = 0.15
-	}
 	county_modifier = {
 		development_growth = 0.2
 		development_growth_factor = 0.1
@@ -95,6 +96,7 @@ gaul = {
 	province_modifier = {
 		fort_level = 3
 		garrison_size = 0.5
+		levy_size = 1000
 	}
 	
 	ai_value = {
