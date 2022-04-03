@@ -1,0 +1,27 @@
+alexandria_restore.0001 = {
+	type = character_event
+	title = alexandria_restore.0001.t
+	desc = alexandria_restore.0001.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_positive_effect"
+		save_scope_as = scoped_ruler
+		add_nickname = nick_the_great
+		# De jure shifts.
+		hidden_effect = {
+			title:k_nikaea = { # Bite Croatia.
+				set_de_jure_liege_title = title:e_alexandria
+			}
+			
+		}
+	}
+	option = {
+		name = alexandria_restore.0001.a
+		add_prestige = 500
+	}
+}
