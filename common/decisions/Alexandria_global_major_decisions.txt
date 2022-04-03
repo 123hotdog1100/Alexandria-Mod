@@ -380,6 +380,7 @@ gaul_major_decision = {
 			culture = culture:breton
 			culture = culture:occitan
 			culture = culture:norman
+			culture = culture:gaulic
 		}
 	}
 

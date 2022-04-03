@@ -1,3 +1,0 @@
-create_alexandria_empire_scripted_effect = {
-
-}
