@@ -1,4 +1,4 @@
 ﻿l_english:
-  alexandria_major_decision: "Form Alexandria"
-  alexandria_major_decision.desc: "Test"
-  alexandria_major_decision_confirm: "Restore Alexandria"
+  alexandria_major_decision: "Restore Alexandria"
+  alexandria_major_decision.desc: "The long ago empire forged by alexander the great can I restore it?"
+  alexandria_major_decision_confirm: "I will restore Alexandria!"
