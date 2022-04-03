@@ -8,11 +8,12 @@ alexander = {
 	levy = 1
 	domain_limit = 5
 	vassal_levy_contribution_mult  = 0.1
+	shown_in_ruler_designer = no
 
 	flag = lower_chance_of_dying_in_combat
 
 	vassal_opinion = 10
-	vassal_limit = 100
+	vassal_limit = 15
 	
 	desc = {
 		first_valid = {
@@ -23,6 +24,109 @@ alexander = {
 				desc = trait_alexander_desc
 			}
 			desc = trait_alexander_desc
+		}
+	}
+
+	ai_energy = low_positive_ai_value
+	ai_boldness = dominant_positive_ai_value
+	ai_rationality = low_negative_ai_value
+	ai_sociability = low_positive_ai_value
+	
+	#portrait_pose = {
+	#	name = "test_pose_brave"
+	#	score = 10
+	#}
+	compatibility = {
+		brave = @pos_compat_high
+		ambitious = @pos_compat_medium
+		rowdy = @pos_compat_medium
+		gallant = @pos_compat_low
+		blademaster_1 = @pos_compat_low
+		blademaster_2 = @pos_compat_low
+		blademaster_3 = @pos_compat_low
+		strategist = @pos_compat_low
+		overseer = @pos_compat_low
+		gallant = @pos_compat_low
+		craven = @neg_compat_high
+		lazy = @neg_compat_medium
+		calm = @neg_compat_low
+		content = @neg_compat_low
+	}
+}
+
+dido = {
+	index = 2501
+	personality = no
+	good = yes
+	stewardship = 5
+	domain_limit = 6
+	vassal_tax_mult = 0.1
+	shown_in_ruler_designer = no
+
+	vassal_opinion = 15
+	republic_government_vassal_opinion = 10
+	vassal_limit = 20
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dido_desc
+			}
+			desc = trait_dido_desc
+		}
+	}
+	
+	#portrait_pose = {
+	#	name = "test_pose_brave"
+	#	score = 10
+	#}
+	compatibility = {
+		brave = @pos_compat_high
+		ambitious = @pos_compat_medium
+		rowdy = @pos_compat_medium
+		gallant = @pos_compat_low
+		blademaster_1 = @pos_compat_low
+		blademaster_2 = @pos_compat_low
+		blademaster_3 = @pos_compat_low
+		strategist = @pos_compat_low
+		overseer = @pos_compat_low
+		gallant = @pos_compat_low
+		craven = @neg_compat_high
+		lazy = @neg_compat_medium
+		calm = @neg_compat_low
+		content = @neg_compat_low
+	}
+}
+
+postumus = {
+	index = 2502
+	personality = no
+	good = yes
+	prowess = 10
+	martial = 10
+	levy_reinforcement_rate = 0.1
+	levy = 1
+	domain_limit = 5
+	vassal_levy_contribution_mult  = 0.1
+	shown_in_ruler_designer = no
+
+	flag = lower_chance_of_dying_in_combat
+
+	vassal_opinion = 10
+	vassal_limit = 15
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_postumus_desc
+			}
+			desc = trait_postumus_desc
 		}
 	}
 

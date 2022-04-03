@@ -13,36 +13,32 @@ alexandria_major_decision = {
 		#	target = flag:flag_restored_alexandrian_empire
 		#	}
 		#}
-		custom_description = {
-			text = restore_roman_empire_decision_tt
-			OR = {
-				religion = religion:christianity_religion
-				religion = religion:hellenism_religion
-				culture = culture:macedonian
-			}
+		OR = {
+			culture = culture:Macedonian
+			culture = culture:greek
 		}
 	}
 
 	is_valid = {
+		#OR = {
+		#	has_title = title:e_byzantium
+		#	has_title = title:e_persia
+		#}
 		OR = {
-			has_title = title:e_byzantium
-			has_title = title:e_persia
+			religion = religion:hellenism_religion
+			religion = religion:christianity_religion
 		}
 		prestige_level >= 4
 		completely_controls = title:k_thessalonika
 		completely_controls = title:k_hellas
-		completely_controls = title:k_nikaea
-		completely_controls = title:k_pontus
 		completely_controls = title:k_anatolia
-		completely_controls = title:k_epirus
-		completely_controls = title:k_armenia
-		completely_controls = title:k_jazira
 		completely_controls = title:k_syria
 		completely_controls = title:k_jerusalem
-		completely_controls = title:k_egypt
-		completely_controls = title:k_persia
-		completely_controls = title:k_makran
-		completely_controls = title:k_khorasan
+		completely_controls = title:d_sinai
+		completely_controls = title:d_delta
+		completely_controls = title:d_al-said
+		completely_controls = title:d_al-wahat
+		completely_controls = title:d_alexandria
 	}
 
 	cost = {
@@ -51,14 +47,15 @@ alexandria_major_decision = {
 	}
 
 	effect = {
-		add_prestige = 1000
-		add_prestige_level = 1
-		add_trait = alexander
-		dynasty ={
-			add_dynasty_modifier ={
-				modifier = legacy_of_alexander
-			}
+	add_trait = alexander
+	add_prestige = 1000
+	add_prestige_level = 1
+	dynasty ={
+		add_dynasty_modifier ={
+			modifier = legacy_of_alexander
 		}
+		add_dynasty_prestige = 1000
+	}
 	hidden_effect = {
 			add_to_global_variable_list = {
 			name = unavailable_unique_decisions
@@ -84,7 +81,65 @@ alexandria_major_decision = {
 			set_de_jure_liege_title = title:e_alexandria
 		}
 			
+		title:k_nikaea = { 
+		set_de_jure_liege_title = title:e_alexandria
+		}
+		title:k_pontus = { 
+		set_de_jure_liege_title = title:e_alexandria
+`		}
+		title:k_epirus = { 
+		set_de_jure_liege_title = title:e_alexandria
+		}
+		title:k_armenia = { 
+		set_de_jure_liege_title = title:e_alexandria
+		}
+		title:k_jazira = { 
+		set_de_jure_liege_title = title:e_alexandria
+		}
+		title:k_persia = { 
+		set_de_jure_liege_title = title:e_alexandria
+		}
+		title:k_makran = { 
+		set_de_jure_liege_title = title:e_alexandria
+		}
+		title:k_khorasan = { 
+		set_de_jure_liege_title = title:e_alexandria
+		}
+		title:k_daylam = { 
+		set_de_jure_liege_title = title:e_alexandria
+		}
+		title:k_mesopotamia = { 
+		set_de_jure_liege_title = title:e_alexandria
+		}
+		if = { 
+		limit = {
+			NOT = { capital_county = { this = title:c_thessalonika } }
+		}
+			if = { #Usurp if not held personally.
+				limit = {
+					NOT = { this = title:c_thessalonika.holder }
+				}
+				create_title_and_vassal_change = {
+					type = returned
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				title:c_thessalonika = {
+					change_title_holder = {
+						holder = root
+						change = scope:change
+					}
+					change_development_level = 20
+					#title_province = { add_building_slot = 3 }
+					title_province = { add_special_building =  thessaloniki}
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+		}
+		root = { set_realm_capital = title:c_thessalonika }
 	}
+	}
+
 	create_title_and_vassal_change = {
 				type = created
 				save_scope_as = change
@@ -111,5 +166,342 @@ alexandria_major_decision = {
 
 	ai_will_do = {
 		base = 100
+		}
 	}
+}
+
+carthage_major_decision = { 
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	major = yes
+	desc = carthage_major_decision.desc
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		NOT = {  #Can only do it once.
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_restored_carthage_empire
+			}
+		}
+		OR = {
+			culture = culture:roman
+			culture = culture:italian
+			culture = culture:baranis
+			religion = religion:hellenism_religion
+		}
+	}
+
+	is_valid = {
+		has_title = title:k_africa
+		prestige_level >= 4
+		completely_controls = title:k_africa
+		completely_controls = title:k_sardinia
+		completely_controls = title:d_cyrenaica
+		completely_controls = title:d_sicily
+		completely_controls = title:k_valencia
+		
+	}
+
+	cost = {
+		#piety = 1000
+		#gold = 1000
+	}
+
+	effect = {
+		add_trait = dido
+		add_prestige = 1500
+		add_prestige_level = 1
+		dynasty ={
+			add_dynasty_modifier ={
+				modifier = legacy_of_dido
+			}
+			add_dynasty_prestige = 1500
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:e_carthage = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		every_held_title = { #Should destroy all other Empires owned at the time.
+			limit = {
+					tier = tier_empire
+				NOT = { this = title:e_carthage }
+			}
+			root = { destroy_title = prev }
+		}
+
+		hidden_effect = {
+			add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_restored_carthage_empire
+			}
+			every_held_title = { #Should shift all dejure of all Empires owned at the time.
+			limit = {
+				tier = tier_empire
+			}
+			every_in_de_jure_hierarchy = {
+				limit = {
+					tier = tier_kingdom
+				}
+				set_de_jure_liege_title = title:e_carthage
+				
+			}
+
+		title:k_africa = { 
+			set_de_jure_liege_title = title:e_carthage
+			}
+		title:k_coast_algier = { 
+				set_de_jure_liege_title = title:e_carthage
+				}
+		title:k_valencia = { 
+					set_de_jure_liege_title = title:e_carthage
+				}
+		title:k_andalusia = { 
+						set_de_jure_liege_title = title:e_carthage
+						}
+		title:k_sardinia = { 
+							set_de_jure_liege_title = title:e_carthage
+							}
+		title:k_sicily = { 
+			set_de_jure_liege_title = title:e_carthage
+		}
+		title:d_bejaia = { 
+			set_de_jure_liege_title = title:k_coast_algier
+			}
+		title:d_alger = { 
+				set_de_jure_liege_title = title:k_coast_algier
+				}
+		title:d_tlemcen = { 
+					set_de_jure_liege_title = title:k_coast_algier
+					}
+		title:d_rif = { 
+						set_de_jure_liege_title = title:k_coast_algier
+						}
+		resolve_title_and_vassal_change = scope:change
+		every_held_title = { #Should destroy all other Empires owned at the time.
+			limit = {
+					tier = tier_empire
+				NOT = { this = title:e_carthage }
+			}
+			root = { destroy_title = prev }
+		}
+		if = { 
+			limit = {
+				NOT = { capital_county = { this = title:c_tunis } }
+			}
+				if = { #Usurp if not held personally.
+					limit = {
+						NOT = { this = title:c_tunis.holder }
+					}
+					create_title_and_vassal_change = {
+						type = returned
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					title:c_tunis = {
+						change_title_holder = {
+							holder = root
+							change = scope:change
+						}
+						change_development_level = 20
+						title_province = { add_building_slot = 2 }
+						set_title_name = Carthage
+					}
+					resolve_title_and_vassal_change = scope:change
+				}
+				title:b_tunis = {
+					set_title_name = Carthage
+				}
+			}
+			root = { set_realm_capital = title:c_tunis }
+		}
+	}
+}
+}
+restore_hellenic = { 
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	major = yes
+	desc = restore_hellenic.desc
+	
+	ai_check_interval = 0
+	
+	is_shown = {
+		is_ruler = yes
+		character = {
+			NOT = religion:hellenism_religion 
+		}
+		OR = {
+			religion = religion:christianity_religion 
+			religion = religion:islam_religion 
+		}
+	}
+	
+	is_valid = {
+		has_title = title:e_alexandria
+	}
+	cost = {
+		piety = 500
+	}
+	
+	effect = {
+		set_character_faith_with_conversion = faith:hellenic_pagan
+	}
+}
+gaul_major_decision = { 
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	major = yes
+	desc = gaul_major_decision.desc
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		NOT = {  #Can only do it once.
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_restored_gaul_empire
+			}
+		}
+		OR = {
+			culture = culture:french
+			culture = culture:dutch
+			culture = culture:franconian
+			culture = culture:breton
+			culture = culture:occitan
+			culture = culture:norman
+		}
+	}
+
+	is_valid = {
+		has_title = title:k_france
+		prestige_level >= 4
+		completely_controls = title:k_france
+		completely_controls = title:k_aquitaine
+		completely_controls = title:k_frisia
+		completely_controls = title:k_lotharingia
+		completely_controls = title:k_brittany
+		
+	}
+
+	cost = {
+		piety = 1000
+		gold = 1000
+	}
+
+	effect = {
+		add_trait = postumus
+		add_prestige = 1500
+		add_prestige_level = 1
+		dynasty ={
+			add_dynasty_modifier ={
+				modifier = legacy_of_postumus
+			}
+			add_dynasty_prestige = 1500
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:e_gaul = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		every_held_title = { #Should destroy all other Empires owned at the time.
+			limit = {
+					tier = tier_empire
+				NOT = { this = title:e_gaul }
+			}
+			root = { destroy_title = prev }
+		}
+
+		hidden_effect = {
+			add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_restored_gaulic_empire
+			}
+			every_held_title = { #Should shift all dejure of all Empires owned at the time.
+			limit = {
+				tier = tier_empire
+			}
+			every_in_de_jure_hierarchy = {
+				limit = {
+					tier = tier_kingdom
+				}
+				set_de_jure_liege_title = title:e_gaul
+				
+			}
+
+		title:k_france = { 
+			set_de_jure_liege_title = title:e_gaul
+		}
+		title:k_aquitaine = { 
+			set_de_jure_liege_title = title:e_gaul
+		}
+		title:k_brittany = { 
+			set_de_jure_liege_title = title:e_gaul
+		}
+		title:k_italy = { 
+			set_de_jure_liege_title = title:e_gaul
+		}
+		title:k_burgundy = { 
+			set_de_jure_liege_title = title:e_gaul
+		}
+		title:k_lotharingia = { 
+			set_de_jure_liege_title = title:e_gaul
+		}
+		title:k_aragon = { 
+			set_de_jure_liege_title = title:e_gaul
+		}
+		title:k_navarra = { 
+			set_de_jure_liege_title = title:e_gaul
+		}
+		resolve_title_and_vassal_change = scope:change
+		every_held_title = { #Should destroy all other Empires owned at the time.
+			limit = {
+					tier = tier_empire
+				NOT = { this = title:e_gaul }
+			}
+			root = { destroy_title = prev }
+		}
+		if = { 
+			limit = {
+				NOT = { capital_county = { this = title:c_cologne } }
+			}
+				if = { #Usurp if not held personally.
+					limit = {
+						NOT = { this = title:c_cologne.holder }
+					}
+					create_title_and_vassal_change = {
+						type = returned
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					title:c_cologne = {
+						change_title_holder = {
+							holder = root
+							change = scope:change
+						}
+						change_development_level = 20
+						title_province = { add_building_slot = 2 }
+					}
+					resolve_title_and_vassal_change = scope:change
+				}
+			}
+			root = { set_realm_capital = title:c_cologne }
+		}
+	}
+}
 }

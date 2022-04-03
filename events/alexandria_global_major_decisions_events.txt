@@ -5,7 +5,7 @@ alexandria_restore.0001 = {
 	theme = realm
 	left_portrait = {
 		character = root
-		animation = personality_greedy
+		animation = lity_greedy
 	}
 
 	immediate = {

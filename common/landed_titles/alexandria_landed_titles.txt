@@ -2,7 +2,32 @@ e_alexandria = {
 	color = { 255 0 0 }
 	color2 = { 255 255 255 }
 	
-	capital = c_byzantion # Rome
+	capital = c_thessalonika # Rome
+	definite_form = yes
+
+}
+e_carthage = {
+	color = { 147 112 219 }
+	color2 = { 147 112 219}
+	
+	capital = c_tunis
+	definite_form = yes
+
+}
+k_coast_algier = {
+	color = { 0 0 255 }
+	color2 = { 255 255 255 }
+	
+	capital = c_bejaia
+	definite_form = yes
+
+}
+
+e_gaul = {
+	color = { 0 0 0 }
+	color2 = { 0 0 0}
+	
+	capital = c_cologne
 	definite_form = yes
 
 }

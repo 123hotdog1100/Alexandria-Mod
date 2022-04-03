@@ -1,3 +1,7 @@
 ﻿l_english:
-  trait_alexander: "Alexander" 
-  trait_alexander_desc: "This person re-created the great alexandrian empire"
+  trait_alexander: "Alexander " 
+  trait_alexander_desc: "This person re-created the great macedonian empire"
+  trait_dido: "Dido"
+  trait_dido_desc: "This person reformed the carthage empire!"
+  trait_postumus: "Postumus"
+  trait_postumus_desc: "This person reformed the great Gaulic Empire"
