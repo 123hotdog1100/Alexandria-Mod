@@ -25,7 +25,7 @@ Macedonian = {
 }
 gaulic = {
 	color = saxon
-	parents ={old_saxon }
+	parents ={ old_saxon }
 	
 	ethos = ethos_bellicose 
 	heritage = heritage_central_germanic

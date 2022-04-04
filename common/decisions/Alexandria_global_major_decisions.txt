@@ -312,7 +312,7 @@ carthage_major_decision = {
 							holder = root
 							change = scope:change
 						}
-						change_development_level = 20
+						change_development_level = 25
 						title_province = { add_building_slot = 2 }
 						set_title_name = Carthage
 						title_province = { add_special_building  =  carthage}
@@ -497,7 +497,7 @@ gaul_major_decision = {
 							holder = root
 							change = scope:change
 						}
-						change_development_level = 20
+						change_development_level = 15
 						title_province = { add_building_slot = 2 }
 						title_province = { add_special_building_slot = 1}
 						title_province = { add_special_building = gaul}

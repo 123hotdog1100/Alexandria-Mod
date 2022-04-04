@@ -4,5 +4,5 @@ tags={
 	"Alternative History"
 	"Culture"
 }
-name="Alexandra Empire"
+name="Historical Empires"
 supported_version="1.5.1.1"
