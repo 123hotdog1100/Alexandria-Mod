@@ -1,5 +1,6 @@
 ﻿l_english:
   building_type_thessaloniki:0 "Walls Of Thessaloniki"
   building_thessaloniki:0 "Walls Of Thessaloniki"
-  building_thessaloniki_desc: "These walls were built to protect the new capitcal of the Macedonian Empire"
-  building_carthage:0 "Carthage"
+  building_thessaloniki_desc: "These walls were built to protect the capital of the Macedonian Empire"
+  building_carthage:0 "Trade City of Carthage"
+  building_nubia:0 "Trade Capital of Nubian Empire"

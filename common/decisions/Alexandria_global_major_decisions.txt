@@ -236,6 +236,7 @@ carthage_major_decision = {
 		add_trait = dido
 		add_prestige = 1500
 		add_prestige_level = 1
+		change_government = he_trade_republic
 		dynasty ={
 			add_dynasty_modifier ={
 				modifier = legacy_of_dido
@@ -512,12 +513,12 @@ nubia_major_decision = {
 
 	is_shown = {
 		is_ruler = yes
-		NOT = {  #Can only do it once.
-		is_target_in_global_variable_list = {
-			name = unavailable_unique_decisions
-			target = flag:flag_restored_nubia_empire
-			}
-		}
+		#NOT = {  #Can only do it once.
+		#is_target_in_global_variable_list = {
+		#	name = unavailable_unique_decisions
+		#	target = flag:flag_restored_nubia_empire
+		#	}
+		#}
 		OR = {
 			culture = culture:nubian
 			culture = culture:egyptian
@@ -546,6 +547,7 @@ nubia_major_decision = {
 		add_pressed_claim = title:k_syria
 		add_trait = kashta
 		add_prestige = 1500
+		change_government = he_trade_republic
 		add_prestige_level = 1
 		dynasty ={
 			add_dynasty_modifier ={
