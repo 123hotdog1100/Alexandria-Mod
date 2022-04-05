@@ -7,12 +7,12 @@ alexandria_major_decision = {
 
 	is_shown = {
 		is_ruler = yes
-		#NOT = {  #Can only do it once.
-		#is_target_in_global_variable_list = {
-		#	name = unavailable_unique_decisions
-		#	target = flag:flag_restored_alexandrian_empire
-		#	}
-		#}
+		NOT = {  #Can only do it once.
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_restored_alexandrian_empire
+			}
+		}
 		OR = {
 			culture = culture:Macedonian
 			culture = culture:greek
@@ -20,10 +20,11 @@ alexandria_major_decision = {
 	}
 
 	is_valid = {
-		#OR = {
-		#	has_title = title:e_byzantium
-		#	has_title = title:e_persia
-		#}
+		OR = {
+			has_title = title:e_byzantium
+			has_title = title:e_persia
+			has_title = title:e_nubia
+		}
 		OR = {
 			religion = religion:hellenism_religion
 			religion = religion:christianity_religion
@@ -47,6 +48,21 @@ alexandria_major_decision = {
 	}
 
 	effect = {
+	add_pressed_claim = title:k_thessalonika
+	add_pressed_claim = title:d_thessalonika
+	title:k_thessalonika = {
+		set_title_name = Macedonia
+		set_color_from_title = title:e_alexandria
+		set_capital_county  = title:c_thessalonika
+	}
+
+	show_as_tooltip = {	spawn_army = {
+		levies = 5000
+		location = title:c_thessalonika.title_province
+		name = men
+		}
+	}
+	#add_realm_law = single_heir_succession_law 
 	add_trait = alexander
 	add_prestige = 1000
 	add_prestige_level = 1
@@ -111,6 +127,12 @@ alexandria_major_decision = {
 		title:k_mesopotamia = { 
 		set_de_jure_liege_title = title:e_alexandria
 		}
+		title:k_syria = { 
+			set_de_jure_liege_title = title:e_alexandria
+		}
+		title:k_jerusalem = { 
+			set_de_jure_liege_title = title:e_alexandria
+		}
 		if = { 
 		limit = {
 			NOT = { capital_county = { this = title:c_thessalonika } }
@@ -149,7 +171,7 @@ alexandria_major_decision = {
 				change_title_holder = {
 					holder = root
 					change = scope:change
-				}
+				} 
 			}
 			resolve_title_and_vassal_change = scope:change
 			every_held_title = { #Should destroy all other Empires owned at the time.
@@ -159,6 +181,7 @@ alexandria_major_decision = {
 				}
 				root = { destroy_title = prev }
 			}
+			
 
 	ai_potential = {
 		always = yes
@@ -179,12 +202,12 @@ carthage_major_decision = {
 
 	is_shown = {
 		is_ruler = yes
-		#NOT = {  #Can only do it once.
-		#is_target_in_global_variable_list = {
-		#	name = unavailable_unique_decisions
-		#	target = flag:flag_restored_carthage_empire
-		#	}
-		#}
+		NOT = {  #Can only do it once.
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_restored_carthage_empire
+			}
+		}
 		OR = {
 			culture = culture:roman
 			culture = culture:italian
@@ -194,13 +217,13 @@ carthage_major_decision = {
 	}
 
 	is_valid = {
-		#has_title = title:k_africa
-		#prestige_level >= 4
-		#completely_controls = title:k_africa
-		#completely_controls = title:k_sardinia
-		#completely_controls = title:d_cyrenaica
-		#completely_controls = title:d_sicily
-		#completely_controls = title:k_valencia
+		has_title = title:k_africa
+		prestige_level >= 4
+		completely_controls = title:k_africa
+		completely_controls = title:k_sardinia
+		completely_controls = title:d_cyrenaica
+		completely_controls = title:d_sicily
+		completely_controls = title:k_valencia
 		
 	}
 
@@ -329,35 +352,6 @@ carthage_major_decision = {
 	}
 }
 }
-restore_hellenic = { 
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
-	major = yes
-	desc = restore_hellenic.desc
-	
-	ai_check_interval = 0
-	
-	is_shown = {
-		is_ruler = yes
-		character = {
-			NOT = religion:hellenism_religion 
-		}
-		OR = {
-			religion = religion:christianity_religion 
-			religion = religion:islam_religion 
-		}
-	}
-	
-	is_valid = {
-		has_title = title:e_alexandria
-	}
-	cost = {
-		piety = 500
-	}
-	
-	effect = {
-		set_character_faith_with_conversion = faith:hellenic_pagan
-	}
-}
 gaul_major_decision = { 
 	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
 	major = yes
@@ -370,7 +364,7 @@ gaul_major_decision = {
 		NOT = {  #Can only do it once.
 		is_target_in_global_variable_list = {
 			name = unavailable_unique_decisions
-			target = flag:flag_restored_gaul_empire
+			target = flag:flag_restored_gaulic_empire
 			}
 		}
 		OR = {
@@ -499,13 +493,162 @@ gaul_major_decision = {
 						}
 						change_development_level = 15
 						title_province = { add_building_slot = 2 }
-						title_province = { add_special_building_slot = 1}
 						title_province = { add_special_building = gaul}
 					}
 					resolve_title_and_vassal_change = scope:change
 				}
 			}
 			root = { set_realm_capital = title:c_cologne }
+		}
+	}
+}
+}
+nubia_major_decision = { 
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	major = yes
+	desc = nubia_major_decision.desc
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		NOT = {  #Can only do it once.
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_restored_nubia_empire
+			}
+		}
+		OR = {
+			culture = culture:nubian
+			culture = culture:egyptian
+		}
+	}
+
+	is_valid = {
+		has_title = title:k_nubia
+		prestige_level >= 4
+		completely_controls = title:d_eastern_desert
+		completely_controls = title:d_al-wahat
+		completely_controls = title:d_delta
+		completely_controls = title:d_alexandria
+		completely_controls = title:d_al-said
+		completely_controls = title:d_cairo
+	}
+
+	cost = {
+		piety = 1000
+		gold = 1000
+	}
+
+	effect = {
+		add_pressed_claim = title:d_sinai
+		add_pressed_claim = title:d_palestine
+		add_pressed_claim = title:k_syria
+		add_trait = kashta
+		add_prestige = 1500
+		add_prestige_level = 1
+		dynasty ={
+			add_dynasty_modifier ={
+				modifier = legacy_of_kashta
+			}
+			add_dynasty_prestige = 1500
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:e_nubia = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		every_held_title = { #Should destroy all other Empires owned at the time.
+			limit = {
+					tier = tier_empire
+				NOT = { this = title:e_nubia }
+			}
+			root = { destroy_title = prev }
+		}
+
+		hidden_effect = {
+			add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_restored_nubia_empire
+			}
+			every_held_title = { #Should shift all dejure of all Empires owned at the time.
+			limit = {
+				tier = tier_empire
+			}
+			every_in_de_jure_hierarchy = {
+				limit = {
+					tier = tier_kingdom
+				}
+				set_de_jure_liege_title = title:e_nubia
+				
+			}
+
+		title:k_nubia = { 
+			set_de_jure_liege_title = title:e_nubia
+		}
+		title:k_lower_egypt = { 
+			set_de_jure_liege_title = title:e_nubia
+		}
+		title:d_eastern_desert = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		title:d_al-wahat = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		title:d_delta = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		title:d_alexandria = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		title:d_al-said = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		title:d_cairo = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		resolve_title_and_vassal_change = scope:change
+		every_held_title = { #Should destroy all other Empires owned at the time.
+			limit = {
+					tier = tier_empire
+				NOT = { this = title:e_gaul }
+			}
+			root = { destroy_title = prev }
+		}
+		if = { 
+			limit = {
+				NOT = { capital_county = { this = title:c_meroe } }
+			}
+				if = { #Usurp if not held personally.
+					limit = {
+						NOT = { this = title:c_meroe.holder }
+					}
+					create_title_and_vassal_change = {
+						type = returned
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					title:c_meroe = {
+						change_title_holder = {
+							holder = root
+							change = scope:change
+						}
+						change_development_level = 15
+						title_province = { add_building_slot = 2 }
+						title_province = { add_special_building_slot = 1}
+						title_province = { add_special_building = nubia}
+					}
+					resolve_title_and_vassal_change = scope:change
+				}
+			}
+			root = { set_realm_capital = title:c_meroe }
 		}
 	}
 }

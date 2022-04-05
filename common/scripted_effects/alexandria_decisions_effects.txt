@@ -1,0 +1,7 @@
+spawn_macedon_troops = {
+	spawn_army = {
+		levies = 5000
+		location = title:c_thessalonika.title_province
+		name = men
+	}
+}

@@ -18,9 +18,7 @@ legacy_of_dido = {
 }
 legacy_of_postumus = {
 	icon = martial_positive
-	vassal_limit = 10
-	martial = 1
-	levy_reinforcement_rate = 0.05
-	direct_vassal_opinion = 10
+	martial = 2
+	levy_reinforcement_rate = 0.1
 	vassal_levy_contribution_mult  = 0.05
 }

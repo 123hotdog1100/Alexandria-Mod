@@ -22,8 +22,23 @@ k_coast_algier = {
 	definite_form = yes
 
 }
+k_lower_egypt = {
+	color = { 0 0 0 }
+	color2 = { 0 0 0}
+	
+	capital = c_cologne
+	definite_form = yes
 
+}
 e_gaul = {
+	color = { 0 0 0 }
+	color2 = { 0 0 0}
+	
+	capital = c_cologne
+	definite_form = yes
+
+}
+e_nubia = {
 	color = { 0 0 0 }
 	color2 = { 0 0 0}
 	

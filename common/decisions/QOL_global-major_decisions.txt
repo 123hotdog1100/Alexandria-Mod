@@ -1,0 +1,63 @@
+de_jure_move = {
+	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+	major = yes
+
+	ai_goal = no
+
+	is_shown = {
+		always = no
+	}
+
+	widget = {
+		controller = create_holy_order
+		barony_valid = {
+			trigger_if = {
+				limit = { exists = this }
+				kingdom_is_valid_for_de_jure = { CHARACTER = scope:ruler }
+			}
+			trigger_else = {
+				custom_description = {
+					text = "has_holy_order_barony_selected"
+					always = no
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_at_war = no
+	}
+	effect = {
+
+	}
+}
+restore_hellenic = { 
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	major = yes
+	desc = restore_hellenic.desc
+	
+	ai_check_interval = 0
+	
+	is_shown = {
+		is_ruler = yes
+		character = {
+			NOT = religion:hellenism_religion 
+		}
+		OR = {
+			religion = religion:christianity_religion 
+			religion = religion:islam_religion 
+		}
+	}
+	
+	is_valid = {
+		has_title = title:e_alexandria
+	}
+	cost = {
+		piety = 500
+	}
+	
+	effect = {
+		set_character_faith_with_conversion = faith:hellenic_pagan
+	}
+}

@@ -12,7 +12,9 @@ thessaloniki = {
 	
 	max_garrison = 1000
 	is_enabled = {
-		county.empire.holder = county.holder
+		scope:holder = {
+			has_title = title:e_alexandria
+		}
 	}
 	county_modifier = {
 		development_growth = 0.3
@@ -26,7 +28,7 @@ thessaloniki = {
 	}
 
 	character_modifier = {
-		martial = 1
+		martial = 2
 		monthly_dynasty_prestige_mult = 0.05
 		prowess_per_prestige_level =5
 		monthly_prestige_gain_per_knight_mult = 0.01
@@ -47,33 +49,34 @@ carthage = {
 		building_requirement_tribal = no
 	}
 	is_enabled = {
-		county.empire.holder = county.holder
+		scope:holder = {
+			has_title = title:e_carthage
+		}
 	}
 	
 	cost_gold = 1500
 	
 	county_modifier = {
-		development_growth = 0.3
-		development_growth_factor = 0.8
+		development_growth = 0.4
+		development_growth_factor = 0.25
 	}
 	province_modifier = {
-		fort_level = 3
-		garrison_size = 0.25
+		fort_level = 1
+		levy_size = -0.25
 	}
 	character_modifier = {
 		domain_tax_mult = 0.1
 		stewardship = 2
 		monthly_dynasty_prestige_mult = 0.05
-		stewardship_per_prestige_level =2
-		monthly_piety_from_buildings_mult = 0.01
-		monthly_income = 5
+		stewardship_per_prestige_level = 1
+		monthly_income = 10
 	}
 	ai_value = {
 		base = 100
 		culture_likely_to_fortify_modifier = yes
 	}
 	
-	type = duchy_capital
+	type = special
 }
 }
 gaul = {
@@ -90,12 +93,9 @@ gaul = {
 	
 	max_garrison = 1000
 	is_enabled = {
-		county.empire.holder = county.holder
-	}
-	county_modifier = {
-		development_growth = 0.2
-		development_growth_factor = 0.1
-		hostile_raid_time = 0.5
+		scope:holder = {
+			has_title = title:e_gaul
+		}
 	}
 	province_modifier = {
 		fort_level = 3
@@ -105,6 +105,7 @@ gaul = {
 	character_modifier = {
 		can_raid = yes
 		monthly_income = 1 
+		raid_speed = 0.5
 	}
 	
 	ai_value = {

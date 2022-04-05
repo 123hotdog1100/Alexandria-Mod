@@ -1,0 +1,16 @@
+kingdom_is_valid_for_de_jure = {
+	de_jure_liege = {
+		NOT = title:ruler.primary_title
+	}
+	trigger_if = {
+		limit = {
+			holder.primary_title.tier != tier_barony
+		}
+	}
+	trigger_if = {
+		limit = {
+			NOT = { holder = $CHARACTER$ }
+		}
+		holder.primary_title.tier = tier_empire	
+	}
+}
