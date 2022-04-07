@@ -9,13 +9,13 @@ he_trade_republic = {
 
 	fallback = 1
 
-	primary_holding = city_holding
+	primary_holding = trade_post_holding
 	required_county_holdings = { castle_holding city_holding  }
 	valid_holdings = {castle_holding city_holding}
 
 	vassal_contract = { republic_government_obligations 	}
 	character_modifier = {					# Modifier applied to the ruler character with this government type
-	monthly_income = 5
+	monthly_income = 2.5
 	stewardship_per_prestige_level = 2
 	}
 	

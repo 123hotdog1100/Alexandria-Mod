@@ -78,27 +78,6 @@ dido = {
 			desc = trait_dido_desc
 		}
 	}
-	
-	#portrait_pose = {
-	#	name = "test_pose_brave"
-	#	score = 10
-	#}
-	compatibility = {
-		brave = @pos_compat_high
-		ambitious = @pos_compat_medium
-		rowdy = @pos_compat_medium
-		gallant = @pos_compat_low
-		blademaster_1 = @pos_compat_low
-		blademaster_2 = @pos_compat_low
-		blademaster_3 = @pos_compat_low
-		strategist = @pos_compat_low
-		overseer = @pos_compat_low
-		gallant = @pos_compat_low
-		craven = @neg_compat_high
-		lazy = @neg_compat_medium
-		calm = @neg_compat_low
-		content = @neg_compat_low
-	}
 }
 
 postumus = {
@@ -112,11 +91,9 @@ postumus = {
 	domain_limit = 5
 	vassal_levy_contribution_mult  = 0.1
 	shown_in_ruler_designer = no
+	raid_speed = 0.25
 
 	flag = lower_chance_of_dying_in_combat
-
-	vassal_opinion = 10
-	vassal_limit = 15
 	
 	desc = {
 		first_valid = {
@@ -135,26 +112,6 @@ postumus = {
 	ai_rationality = low_negative_ai_value
 	ai_sociability = low_positive_ai_value
 	
-	#portrait_pose = {
-	#	name = "test_pose_brave"
-	#	score = 10
-	#}
-	compatibility = {
-		brave = @pos_compat_high
-		ambitious = @pos_compat_medium
-		rowdy = @pos_compat_medium
-		gallant = @pos_compat_low
-		blademaster_1 = @pos_compat_low
-		blademaster_2 = @pos_compat_low
-		blademaster_3 = @pos_compat_low
-		strategist = @pos_compat_low
-		overseer = @pos_compat_low
-		gallant = @pos_compat_low
-		craven = @neg_compat_high
-		lazy = @neg_compat_medium
-		calm = @neg_compat_low
-		content = @neg_compat_low
-	}
 }
 dido = {
 	index = 2503
@@ -179,21 +136,28 @@ dido = {
 			desc = trait_dido_desc
 		}
 	}
+}
+kashta = {
+	index = 2503
+	personality = no
+	good = yes
+	stewardship = 3
+	domain_limit = 2
+	vassal_tax_mult = 0.25
+	shown_in_ruler_designer = no
+	vassal_opinion = 10
+	republic_government_vassal_opinion = 5
+	vassal_limit = 15
 	
-	compatibility = {
-		brave = @pos_compat_high
-		ambitious = @pos_compat_medium
-		rowdy = @pos_compat_medium
-		gallant = @pos_compat_low
-		blademaster_1 = @pos_compat_low
-		blademaster_2 = @pos_compat_low
-		blademaster_3 = @pos_compat_low
-		strategist = @pos_compat_low
-		overseer = @pos_compat_low
-		gallant = @pos_compat_low
-		craven = @neg_compat_high
-		lazy = @neg_compat_medium
-		calm = @neg_compat_low
-		content = @neg_compat_low
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_kashta_desc
+			}
+			desc = trait_kashta_desc
+		}
 	}
 }
