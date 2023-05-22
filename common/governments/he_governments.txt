@@ -20,4 +20,5 @@ he_trade_republic = {
 	}
 	
 	color = { 135 206 250 }
+	flag = government_is_trade
 }

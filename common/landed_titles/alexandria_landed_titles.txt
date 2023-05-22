@@ -2,7 +2,7 @@ e_alexandria = {
 	color = { 255 0 0 }
 	color2 = { 255 255 255 }
 	
-	capital = c_thessalonika # Rome
+	capital = c_thessalonika
 	definite_form = yes
 
 }
@@ -42,7 +42,7 @@ e_nubia = {
 	color = { 0 0 0 }
 	color2 = { 0 0 0}
 	
-	capital = c_cologne
+	capital = c_meroe
 	definite_form = yes
 
 }

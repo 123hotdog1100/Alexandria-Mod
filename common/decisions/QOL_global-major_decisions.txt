@@ -44,10 +44,7 @@ restore_hellenic = {
 		character = {
 			NOT = religion:hellenism_religion 
 		}
-		OR = {
-			religion = religion:christianity_religion 
-			religion = religion:islam_religion 
-		}
+		religion = religion:christianity_religion 
 	}
 	
 	is_valid = {

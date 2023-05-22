@@ -5,3 +5,10 @@ spawn_macedon_troops = {
 		name = men
 	}
 }
+
+nubia_creation = {
+	save_scope_as = founder
+	title:e_nubia = {
+		add_title_law =  he_nubia_succession_law
+	}
+}

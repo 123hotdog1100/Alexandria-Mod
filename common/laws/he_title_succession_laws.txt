@@ -1,0 +1,31 @@
+he_title_succession_laws = {
+	#Default Feudal Elective
+	he_nubia_succession_law = {
+		can_have = {
+			government_has_flag = government_is_trade
+		}
+		can_pass = {
+			government_has_flag = government_is_trade
+		}
+		can_title_have = {
+			government_has_flag = government_is_trade
+			this = title:e_nubia
+		}
+		succession = {
+			order_of_succession = election
+			election_type = he_nubia_elective
+		}
+		can_remove_from_title = {
+			always = yes
+			text = he_nubia_succession_law_revoc
+		}
+		flag = elective_succession_law
+		title_allegiance_opinion = 10
+		revoke_cost = {
+
+		}
+		pass_cost = {
+			prestige = 0
+		}
+    }
+}

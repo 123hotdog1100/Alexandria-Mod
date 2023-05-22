@@ -311,7 +311,7 @@ trade_post_01 = {
 		}
 	}
 }
-}
+
 trade_post_02 = {
 	construction_time = slow_construction_time
 	

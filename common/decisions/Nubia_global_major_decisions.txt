@@ -1,0 +1,159 @@
+nubia_major_decision = { 
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	major = yes
+	desc = nubia_major_decision.desc
+
+	ai_check_interval = 0
+
+	is_shown = {
+		always = yes
+		#is_ruler = yes
+		#NOT = {  #Can only do it once.
+		#is_target_in_global_variable_list = {
+		#	name = unavailable_unique_decisions
+		#	target = flag:flag_restored_nubia_empire
+		#	}
+		#}
+		#OR = {
+		#	culture = culture:nubian
+		#	culture = culture:egyptian
+		#}
+	}
+
+	is_valid = {
+		always = yes
+		#has_title = title:k_nubia
+		#prestige_level >= 4
+		#completely_controls = title:d_eastern_desert
+		#completely_controls = title:d_al-wahat
+		#completely_controls = title:d_delta
+		#completely_controls = title:d_alexandria
+		#completely_controls = title:d_al-said
+		#completely_controls = title:d_cairo
+	}
+
+	cost = {
+		piety = 1000
+		gold = 1000
+	}
+
+	effect = {
+		add_pressed_claim = title:d_sinai
+		add_pressed_claim = title:d_palestine
+		add_pressed_claim = title:k_syria
+		add_trait = kashta
+		add_prestige = 1500
+		change_government = he_trade_republic
+		add_prestige_level = 1
+		dynasty ={
+			add_dynasty_modifier ={
+				modifier = legacy_of_kashta
+			}
+			add_dynasty_prestige = 1500
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:e_nubia = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+                
+		}
+		resolve_title_and_vassal_change = scope:change
+		every_held_title = { #Should destroy all other Empires owned at the time.
+			limit = {
+					tier = tier_empire
+				NOT = { this = title:e_nubia }
+			}
+			root = { destroy_title = prev }
+		}
+
+		hidden_effect = {
+			add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_restored_nubia_empire
+			}
+			every_held_title = { #Should shift all dejure of all Empires owned at the time.
+			limit = {
+				tier = tier_empire
+			}
+			every_in_de_jure_hierarchy = {
+				limit = {
+					tier = tier_kingdom
+				}
+				set_de_jure_liege_title = title:e_nubia
+				
+			}
+
+		title:k_nubia = { 
+			set_de_jure_liege_title = title:e_nubia
+		}
+		title:k_lower_egypt = { 
+			set_de_jure_liege_title = title:e_nubia
+		}
+		title:d_eastern_desert = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		title:d_al-wahat = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		title:d_delta = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		title:d_alexandria = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		title:d_al-said = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		title:d_cairo = { 
+			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		resolve_title_and_vassal_change = scope:change
+		every_held_title = { #Should destroy all other Empires owned at the time.
+			limit = {
+					tier = tier_empire
+				NOT = { this = title:e_nubia }
+			}
+			root = { destroy_title = prev }
+		}
+		if = { 
+			limit = {
+				NOT = { capital_county = { this = title:c_meroe } }
+			}
+				if = { #Usurp if not held personally.
+					limit = {
+						NOT = { this = title:c_meroe.holder }
+					}
+					create_title_and_vassal_change = {
+						type = returned
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					title:c_meroe = {
+						change_title_holder = {
+							holder = root
+							change = scope:change
+						}
+						title_province = {set_holding_type = trade_post_holding}
+						change_development_level = 15
+						#title_province = { add_building_slot = 2 }
+						#title_province = { add_special_building_slot = 1}
+						#title_province = { add_special_building = nubia}
+					}
+					resolve_title_and_vassal_change = scope:change
+					}
+				}
+			root = { set_realm_capital = title:c_meroe }
+			
+		}
+		title:e_nubia = {
+			add_title_law =  he_nubia_succession_law
+		}
+	}
+}
+}
+}

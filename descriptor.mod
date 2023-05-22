@@ -6,4 +6,4 @@ tags={
 	"Religion"
 }
 name="Historical Empires"
-supported_version="1.5.1.1"
+supported_version="1.9.0.4"
