@@ -1,0 +1,16 @@
+namespace = he_artifacts
+he_artifacts.0001 = {
+    scope = none
+    hidden = yes
+
+    immediate = {
+        if = {
+			limit = {
+				current_date > 900.1.1
+				exists = title:e_nubia.holder
+			}
+			title:e_nubia.holder = {
+			}
+		}
+    }
+}

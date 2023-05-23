@@ -1,0 +1,28 @@
+can_keep_single_heir_succession_law_trigger = {
+	# The 'can_keep' triggers are dependent on actually having the law. If they aren't, the trigger breakdown for the player breaks and shows incomplete information.
+	trigger_if = {
+		limit = {
+			has_realm_law = single_heir_succession_law
+		}
+		OR = {
+			can_have_single_heir_succession_law_trigger = yes
+			# Byzantine Empire
+			historical_succession_access_single_heir_succession_law_trigger = yes
+		}
+	}
+}
+
+can_have_single_heir_succession_law_trigger = {
+	culture = {
+		has_innovation = innovation_primogeniture
+	}
+	# Non-tribals only
+	custom_description = {
+		text = succession_laws_must_have_organised_government_tooltip
+		OR = {
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_clan
+            government_has_flag = government_is_trade
+		}
+	}
+}

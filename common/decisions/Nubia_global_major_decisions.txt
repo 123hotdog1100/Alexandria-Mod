@@ -6,30 +6,30 @@ nubia_major_decision = {
 	ai_check_interval = 0
 
 	is_shown = {
-		always = yes
-		#is_ruler = yes
+		is_ruler = yes
 		#NOT = {  #Can only do it once.
 		#is_target_in_global_variable_list = {
 		#	name = unavailable_unique_decisions
 		#	target = flag:flag_restored_nubia_empire
 		#	}
 		#}
-		#OR = {
-		#	culture = culture:nubian
-		#	culture = culture:egyptian
-		#}
+		OR = {
+			culture = culture:nubian
+			culture = culture:egyptian
+		}
 	}
 
 	is_valid = {
 		always = yes
-		#has_title = title:k_nubia
-		#prestige_level >= 4
-		#completely_controls = title:d_eastern_desert
-		#completely_controls = title:d_al-wahat
-		#completely_controls = title:d_delta
-		#completely_controls = title:d_alexandria
-		#completely_controls = title:d_al-said
-		#completely_controls = title:d_cairo
+		has_title = title:k_nubia
+		prestige_level >= 4
+		completely_controls = title:d_eastern_desert
+		completely_controls = title:d_al-wahat
+		completely_controls = title:d_delta
+		completely_controls = title:d_alexandria
+		completely_controls = title:d_al-said
+		completely_controls = title:d_cairo
+		is_independent_ruler = yes
 	}
 
 	cost = {
@@ -38,6 +38,7 @@ nubia_major_decision = {
 	}
 
 	effect = {
+		create_artifact_nubia_effect = {OWNER = scope:character}
 		add_pressed_claim = title:d_sinai
 		add_pressed_claim = title:d_palestine
 		add_pressed_claim = title:k_syria
@@ -62,32 +63,6 @@ nubia_major_decision = {
 				change = scope:change
                 
 		}
-		resolve_title_and_vassal_change = scope:change
-		every_held_title = { #Should destroy all other Empires owned at the time.
-			limit = {
-					tier = tier_empire
-				NOT = { this = title:e_nubia }
-			}
-			root = { destroy_title = prev }
-		}
-
-		hidden_effect = {
-			add_to_global_variable_list = {
-			name = unavailable_unique_decisions
-			target = flag:flag_restored_nubia_empire
-			}
-			every_held_title = { #Should shift all dejure of all Empires owned at the time.
-			limit = {
-				tier = tier_empire
-			}
-			every_in_de_jure_hierarchy = {
-				limit = {
-					tier = tier_kingdom
-				}
-				set_de_jure_liege_title = title:e_nubia
-				
-			}
-
 		title:k_nubia = { 
 			set_de_jure_liege_title = title:e_nubia
 		}
@@ -111,6 +86,9 @@ nubia_major_decision = {
 		}
 		title:d_cairo = { 
 			set_de_jure_liege_title = title:k_lower_egypt
+		}
+		title:k_jerusalem = {
+			set_de_jure_liege_title = title:e_nubia
 		}
 		resolve_title_and_vassal_change = scope:change
 		every_held_title = { #Should destroy all other Empires owned at the time.
@@ -140,13 +118,39 @@ nubia_major_decision = {
 						}
 						title_province = {set_holding_type = trade_post_holding}
 						change_development_level = 15
-						#title_province = { add_building_slot = 2 }
-						#title_province = { add_special_building_slot = 1}
-						#title_province = { add_special_building = nubia}
+						title_province = { add_building_slot = 2 }
+						title_province = { add_special_building_slot = nubia}
+						title_province = { add_special_building = nubia}
 					}
 					resolve_title_and_vassal_change = scope:change
 					}
 				}
+			
+			#create_artifact_nubia_effect = {OWNER=this}
+		hidden_effect = {
+			add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_restored_nubia_empire
+			}
+			every_held_title = { #Should shift all dejure of all Empires owned at the time.
+			limit = {
+				tier = tier_empire
+			}
+			every_in_de_jure_hierarchy = {
+				limit = {
+					tier = tier_kingdom
+				}
+				set_de_jure_liege_title = title:e_nubia
+				
+			}
+		resolve_title_and_vassal_change = scope:change
+		every_held_title = { #Should destroy all other Empires owned at the time.
+			limit = {
+					tier = tier_empire
+				NOT = { this = title:e_nubia }
+			}
+			root = { destroy_title = prev }
+		}
 			root = { set_realm_capital = title:c_meroe }
 			
 		}

@@ -114,12 +114,15 @@ gaul = {
 	
 	type = special
 }
-numbia = {
+nubia = {
 	construction_time = 730
 
 	type_icon = "icon_building_tradeport.dds"
 	can_construct_potential = {
 		building_requirement_tribal = no
+		scope:holder = {
+			government_has_flag = government_is_trade
+		}
 	}
 	is_enabled = {
 		scope:holder = {
@@ -150,4 +153,143 @@ numbia = {
 	}
 	
 	type = special
+}
+
+
+he_duchy_tax_assessor_01 = {
+	construction_time = slow_construction_time
+
+	can_construct_potential = {
+		government_has_flag = government_is_trade
+		building_requirement_tribal = no
+	}
+	
+	can_construct_showing_failures_only = {
+		
+		culture = {
+			has_innovation = innovation_manorialism
+		}
+	}
+	
+	is_enabled = {
+		county.holder = { has_title = prev.duchy }
+	}
+	show_disabled = yes
+	
+	cost_gold = expensive_building_tier_3_cost
+	
+	duchy_capital_county_modifier = {
+		tax_mult = 0.15
+	}
+	
+	next_building = he_duchy_tax_assessor_02
+
+	type_icon = "icon_building_tax_assessor.dds"
+	
+	type = duchy_capital
+	
+	ai_value = {
+		base = 20
+		modifier = {
+			factor = 2
+			scope:holder.capital_province = this
+		}
+		modifier = {
+			factor = 2
+			AND = {
+				building_watermills_requirement_terrain = yes
+				building_windmills_requirement_terrain = yes
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				has_building_or_higher = watermills_01
+				has_building_or_higher = windmills_01
+				has_building_or_higher = caravanserai_01
+			}
+		}
+		modifier = { # Fill all building slots before going for duchy buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+}
+
+he_duchy_tax_assessor_02 = {
+	construction_time = slow_construction_time
+
+	can_construct_potential = {
+		government_has_flag = government_is_trade
+		building_requirement_tribal = no
+	}
+	
+	can_construct_showing_failures_only = {
+		
+		culture = {
+			has_innovation = innovation_windmills
+		}
+	}
+	
+	is_enabled = {
+		county.holder = { has_title = prev.duchy }
+	}
+	show_disabled = yes
+	
+	cost_gold = expensive_building_tier_4_cost
+	
+	duchy_capital_county_modifier = {
+		tax_mult = 0.20
+	}
+	
+	next_building = he_duchy_tax_assessor_03
+	
+	type = duchy_capital
+	
+	ai_value = {
+		base = 20
+		modifier = {
+			factor = 2
+			scope:holder.capital_province = this
+		}
+	}
+}
+
+he_duchy_tax_assessor_03 = {
+	construction_time = slow_construction_time
+
+	can_construct_potential = {
+		government_has_flag = government_is_trade
+		building_requirement_tribal = no
+	}
+	
+	can_construct_showing_failures_only = {
+		
+		culture = {
+			has_innovation = innovation_cranes
+		}
+	}
+	
+	is_enabled = {
+		county.holder = { has_title = prev.duchy }
+	}
+	show_disabled = yes
+	
+	cost_gold = expensive_building_tier_5_cost
+	
+	duchy_capital_county_modifier = {
+		tax_mult = 0.30
+	}
+	
+	type = duchy_capital
+	
+	flag = fully_upgraded_duchy_capital_building
+	
+	ai_value = {
+		base = 20
+		modifier = {
+			factor = 2
+			scope:holder.capital_province = this
+		}
+	}
 }

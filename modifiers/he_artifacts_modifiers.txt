@@ -1,0 +1,5 @@
+he_crown_nubia_modifiers = {
+	monthly_dynasty_prestige_mult = 0.05
+	vassal_limit = 5
+    #monthly_income = 5
+}

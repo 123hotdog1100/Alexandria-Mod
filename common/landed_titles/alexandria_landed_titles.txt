@@ -26,14 +26,14 @@ k_lower_egypt = {
 	color = { 0 0 0 }
 	color2 = { 0 0 0}
 	
-	capital = c_cologne
+	capital = c_cairo
 	definite_form = yes
 
 }
 e_gaul = {
 	color = { 0 0 0 }
 	color2 = { 0 0 0}
-	
+	ruler_uses_title_name = yes
 	capital = c_cologne
 	definite_form = yes
 

@@ -1,0 +1,36 @@
+create_artifact_nubia_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+
+	set_artifact_rarity_illustrious = yes
+
+	# Create the artifact
+	create_artifact = {	
+		name = "Atef"
+		description = reichskrone_description
+		type = helmet
+		visuals = hre_crown
+		wealth = scope:wealth
+		quality = scope:quality
+		template = he_crown_nubia_modifiers
+		history = {
+            type = created_before_history
+        }
+        modifier = reichskrone_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+
+	scope:newly_created_artifact = {
+		set_variable = { name = historical_unique_artifact value = yes }
+		set_variable = {
+			name = artifact_succession_title
+			value = title:e_nubia
+		}
+		set_variable = {
+			name = Atef
+			value = yes
+		}
+		save_scope_as = epic
+	}
+}

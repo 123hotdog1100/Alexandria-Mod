@@ -22,3 +22,29 @@ he_trade_republic = {
 	color = { 135 206 250 }
 	flag = government_is_trade
 }
+he_civitas = {
+	create_cadet_branches = yes
+	rulers_should_have_dynasty = yes
+	dynasty_named_realms = yes
+	royal_court = yes
+	affected_by_development = yes
+	supply_limit_mult_for_others = -0.25
+	court_generate_commanders = 1
+
+	fallback = 1
+
+	primary_holding = castle_holding
+	required_county_holdings = { castle_holding city_holding  }
+	valid_holdings = {castle_holding city_holding}
+	vassal_contract = { feudal_government_obligations 	}
+
+	flag = governemnt_is_feudal
+	flag = government_can_raid_rule
+	falg = government_barb_flag
+
+	character_modifier = {
+		monthly_prestige = 1
+	}
+
+	color = {255 203 250}
+}

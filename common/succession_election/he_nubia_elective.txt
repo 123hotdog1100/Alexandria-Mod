@@ -9,22 +9,21 @@
 he_nubia_elective = { #Tanistry
 	elector_vote_strength = {
 		base = 1
-		modifier = { #Current ruler gets a total of 2.
+		modifier = {
 			desc = tooltip_elective_current_ruler
 			add = 1
 			this = scope:holder
 		}
-		modifier = { #Current house head gets further boost.
-			desc = tooltip_gaelic_vote_strength_current_house_head
-			add = 1
-			exists = scope:holder.house.house_head
-			this = scope:holder.house.house_head
-		}
-		modifier = { #Current dynast gets further boost.
-			desc = tooltip_gaelic_vote_strength_current_dynast
-			add = 2
-			exists = scope:holder.dynasty.dynast
-			this = scope:holder.dynasty.dynast
+		modifier = {
+			desc = tooltip_nubia_vote_strength_bribe
+			add = {
+				if = {
+					limit = {
+						root.gold > 500
+					}
+					value = 1
+				}
+			} 
 		}
 		modifier = { #Powerful Vassal
 			desc = tooltip_feudal_vote_strength_powerful_vassal
@@ -42,18 +41,22 @@ he_nubia_elective = { #Tanistry
 			is_powerful_vassal = yes
 			liege = scope:holder
 		}
-        modifier = {
-            if = {
-                limit = {
-                    monthly_income > scope:holder.monthly_income
-                }
-                add = 2
-            }
-        }
 		modifier = { #Regent Influence
 			desc = tooltip_feudal_vote_strength_is_diarch
 			add = 1
 			is_diarch_of_target = scope:holder
+		}
+        modifier = {
+			desc = tooltip_nubia_vote_strength_income
+			add = {
+            	if = {
+                	limit = {
+                    	monthly_character_balance > scope:holder.monthly_character_balance
+                	}
+				value = 1
+            	}
+        	}
+			NOT = {this = scope:holder}
 		}
 	}
 	
@@ -77,6 +80,9 @@ he_nubia_elective = { #Tanistry
 						highest_held_title_tier >= 3
 					}
 				}
+				OR = { #Either de facto direct vassal, or independent ruler who is de jure vassal. (no sub-vassals)
+					is_vassal_of = scope:holder
+				}
 				any_held_title = { #Elector title must be a de jure vassal of the title being voted on; multi-Dukes (or similar) might have two duchies in multiple electoral domains, which they should be able to vote on. This is only valid for the highest-tier title (so a Duke-Elector who also owns a County which is an electoral title for another title does not get a vote from that county).
 					tier = root.highest_held_title_tier
 					exists = de_jure_liege
@@ -86,8 +92,11 @@ he_nubia_elective = { #Tanistry
 		}
 	}
 
+
+
+
 	candidate_score = {
-		base = 0
+		base = 1
 		######################	Elector self-voting pattern	##########################
 		elector_self_voting_pattern_feudal_elective_modifier = yes
 
@@ -110,14 +119,25 @@ he_nubia_elective = { #Tanistry
 	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
 	candidates = {
 		add = {
-			type = holder_dynasty
+			type = holder_direct_vassals
+
+		}
+		add = {
+			type = title_dejure_vassals
 			limit = {
-				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+				is_independent_ruler = yes #De jure vassals of the title who are not de facto vassals of the current ruler.
 			}
 		}
-        add = {
-            is_powerful_vassal = yes
-			liege = scope:holder
-        }
-    }
+		add = {
+			type = title_claimants
+			limit = {
+			}
+		}
+		add = {
+			type = holder_close_or_extended_family
+			limit = {
+				is_close_family_of = scope:holder
+			}
+		}
+	}
 }

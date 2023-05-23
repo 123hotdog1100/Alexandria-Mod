@@ -11,3 +11,6 @@
   gaul_major_decision: "Restore the Gaulic Empire"
   gaul_major_decision.desc: "Restore the Gaulic Empire"
   gaul_major_decision_confirm: "Gaul Restored!"
+  nubia_major_decision: "Restore the Nubian Empire"
+  nubia_major_decision.desc: "Restore the Nubian empire and return to our true heritage"
+  nubia_major_decision_confirm: "Nubia Restored!"
